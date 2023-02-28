@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all cards
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new card
+    </h2>
+
+    <form action="/insert_card" method="post">
+      <div>
+        <label for="card_name_box">
+          Card name
+        </label>
+
+        <input type="text" id="card_name_box" name="query_card_name">
+      </div>
+
+      <div>
+        <label for="providor_box">
+          Providor
+        </label>
+
+        <input type="text" id="providor_box" name="query_providor">
+      </div>
+
+      <div>
+        <label for="network_box">
+          Network
+        </label>
+
+        <input type="text" id="network_box" name="query_network">
+      </div>
+
+      <div>
+        <label for="cashback_box">
+          Cashback
+        </label>
+
+        <input type="text" id="cashback_box" name="query_cashback">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <button>
+        Create card
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Card name
+        </th>
+
+        <th>
+          Providor
+        </th>
+
+        <th>
+          Network
+        </th>
+
+        <th>
+          Cashback
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_cards.each do |a_card| %>
+      <tr>
+        <td>
+          <%= a_card.id %>
+        </td>
+
+        <td>
+          <%= a_card.card_name %>
+        </td>
+
+        <td>
+          <%= a_card.providor %>
+        </td>
+
+        <td>
+          <%= a_card.network %>
+        </td>
+
+        <td>
+          <%= a_card.cashback %>
+        </td>
+
+        <td>
+          <%= a_card.image %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_card.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_card.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/cards/<%= a_card.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

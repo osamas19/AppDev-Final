@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Card #<%= @the_card.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/cards">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_card/<%= @the_card.id %>">
+          Delete card
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Card name
+      </dt>
+      <dd>
+        <%= @the_card.card_name %>
+      </dd>
+
+      <dt>
+        Providor
+      </dt>
+      <dd>
+        <%= @the_card.providor %>
+      </dd>
+
+      <dt>
+        Network
+      </dt>
+      <dd>
+        <%= @the_card.network %>
+      </dd>
+
+      <dt>
+        Cashback
+      </dt>
+      <dd>
+        <%= @the_card.cashback %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_card.image %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_card.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_card.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit card
+    </h2>
+
+    <form action="/modify_card/<%= @the_card.id %>"  method="post" >
+      <div>
+        <label for="card_name_box">
+          Card name
+        </label>
+
+        <input type="text" id="card_name_box" name="query_card_name" value="<%= @the_card.card_name %>">
+      </div>
+
+      <div>
+        <label for="providor_box">
+          Providor
+        </label>
+
+        <input type="text" id="providor_box" name="query_providor" value="<%= @the_card.providor %>">
+      </div>
+
+      <div>
+        <label for="network_box">
+          Network
+        </label>
+
+        <input type="text" id="network_box" name="query_network" value="<%= @the_card.network %>">
+      </div>
+
+      <div>
+        <label for="cashback_box">
+          Cashback
+        </label>
+
+        <input type="text" id="cashback_box" name="query_cashback" value="<%= @the_card.cashback %>">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_card.image %>">
+      </div>
+
+      <button>
+        Update card
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

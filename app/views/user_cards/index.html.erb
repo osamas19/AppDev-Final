@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all user cards
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new user card
+    </h2>
+
+    <form action="/insert_user_card" method="post">
+      <div>
+        <label for="card_4_digits_box">
+          Card 4 digits
+        </label>
+
+        <input type="text" id="card_4_digits_box" name="query_card_4_digits">
+      </div>
+
+      <div>
+        <label for="validity_box">
+          Validity
+        </label>
+
+        <input type="date" id="validity_box" name="query_validity">
+      </div>
+
+      <div>
+        <label for="name_as_shown_box">
+          Name as shown
+        </label>
+
+        <input type="text" id="name_as_shown_box" name="query_name_as_shown">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="card_id_box">
+          Card
+        </label>
+
+        <input type="text" id="card_id_box" name="query_card_id">
+      </div>
+
+      <button>
+        Create user card
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Card 4 digits
+        </th>
+
+        <th>
+          Validity
+        </th>
+
+        <th>
+          Name as shown
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Card
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_user_cards.each do |a_user_card| %>
+      <tr>
+        <td>
+          <%= a_user_card.id %>
+        </td>
+
+        <td>
+          <%= a_user_card.card_4_digits %>
+        </td>
+
+        <td>
+          <%= a_user_card.validity %>
+        </td>
+
+        <td>
+          <%= a_user_card.name_as_shown %>
+        </td>
+
+        <td>
+          <%= a_user_card.user_id %>
+        </td>
+
+        <td>
+          <%= a_user_card.card_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_user_card.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_user_card.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/user_cards/<%= a_user_card.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

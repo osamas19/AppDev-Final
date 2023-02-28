@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      Transaction #<%= @the_transaction.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/transactions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_transaction/<%= @the_transaction.id %>">
+          Delete transaction
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Merchant name
+      </dt>
+      <dd>
+        <%= @the_transaction.merchant_name %>
+      </dd>
+
+      <dt>
+        Amount
+      </dt>
+      <dd>
+        <%= @the_transaction.amount %>
+      </dd>
+
+      <dt>
+        Cashback
+      </dt>
+      <dd>
+        <%= @the_transaction.cashback %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_transaction.user_id %>
+      </dd>
+
+      <dt>
+        User card
+      </dt>
+      <dd>
+        <%= @the_transaction.user_card_id %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_transaction.location %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_transaction.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_transaction.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit transaction
+    </h2>
+
+    <form action="/modify_transaction/<%= @the_transaction.id %>"  method="post" >
+      <div>
+        <label for="merchant_name_box">
+          Merchant name
+        </label>
+
+        <input type="text" id="merchant_name_box" name="query_merchant_name" value="<%= @the_transaction.merchant_name %>">
+      </div>
+
+      <div>
+        <label for="amount_box">
+          Amount
+        </label>
+
+        <input type="text" id="amount_box" name="query_amount" value="<%= @the_transaction.amount %>">
+      </div>
+
+      <div>
+        <label for="cashback_box">
+          Cashback
+        </label>
+
+        <input type="text" id="cashback_box" name="query_cashback" value="<%= @the_transaction.cashback %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_transaction.user_id %>">
+      </div>
+
+      <div>
+        <label for="user_card_id_box">
+          User card
+        </label>
+
+        <input type="text" id="user_card_id_box" name="query_user_card_id" value="<%= @the_transaction.user_card_id %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_transaction.location %>">
+      </div>
+
+      <button>
+        Update transaction
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
