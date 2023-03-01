@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get("/", { :controller => "wallet", :action => "index" })
 
   #Merchant Lookup
-  get("/merchant_search", { :controller => "wallet", :action => "search" })
+  post("/merchant_search", { :controller => "wallet", :action => "search" })
 
 
   # Routes for the Transaction resource:
