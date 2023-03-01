@@ -14,7 +14,6 @@ class WalletController < ApplicationController
     require 'json'
 
     date_time = Time.now.strftime("%Y-%m-%dT%H:%M:%S")
-
     the_merchant_name = params.fetch("merchant_name")
 
     data = {
@@ -26,7 +25,7 @@ class WalletController < ApplicationController
       "header": {
         "requestMessageId": "VCO_GMR_001",
         "startIndex": "0",
-        "messageDateTime": "2023-03-01T00:59:24.000"
+        "messageDateTime": date_time
       },
       "searchAttrList": {
         "merchantName": the_merchant_name,
