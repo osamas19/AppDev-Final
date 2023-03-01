@@ -1,0 +1,28 @@
+<h1>Welcome <%= session.fetch(:user_id)%></h1>
+
+<div>
+  <div>
+    <h2>
+      Merchant Lookup
+    </h2>
+
+    <form action="/merchant_search" method="post">
+      <div>
+        <label for="card_4_digits_box">
+          Enter merchant name
+        </label>
+
+        <input type="text" id="merchant" name="merchant_name">
+      </div>
+
+      <button>
+        Create user card
+      </button>
+    </form>
+  </div>
+</div>
+
+<p>List Cards</p>
+<table>
+
+</table>

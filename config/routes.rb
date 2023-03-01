@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  #Home
+  get("/", { :controller => "wallet", :action => "index" })
+
+  #Merchant Lookup
+  get("/merchant_search", { :controller => "wallet", :action => "search" })
 
 
   # Routes for the Transaction resource:
