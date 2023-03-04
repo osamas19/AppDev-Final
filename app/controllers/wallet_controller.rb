@@ -60,6 +60,48 @@ class WalletController < ApplicationController
     visa_merchant_name = search_response_value.fetch("visaMerchantName")
     @result = all_mcc
 
+    @result.each do |a_category|
+      Card.each do |a_card|
+        number_of_cartegories = Card.no_of_cats
+        if number_of_cartegories == 999
+          the_cashback = a_card.cashback
+          the_card = a_card.card_name
+        elsif a_category = Card.cat1
+          the_cashback = a_card.cat1_cashback
+          the_card = a_card.card_name
+          the_category = a_card.ca1
+        elsif a_category = Card.cat2
+          the_cashback = a_card.cat2_cashback
+          the_card = a_card.card_name
+          the_category = a_card.ca2
+        elsif a_category = Card.cat3
+          the_cashback = a_card.cat3_cashback
+          the_card = a_card.card_name
+          the_category = a_card.ca3
+        elsif a_category = Card.cat4
+          the_cashback = a_card.cat4_cashback
+          the_card = a_card.card_name
+          the_category = a_card.ca4
+        elsif a_category = Card.cat5
+          the_cashback = a_card.cat5_cashback
+          the_card = a_card.card_name
+          the_category = a_card.ca5
+        elsif a_category = Card.cat6
+          the_cashback = a_card.cat6_cashback
+          the_card = a_card.card_name
+          the_category = a_card.ca6
+        
+        else 
+          the_cashback = a_card.cashback
+          the_card = a_card.card_name        
+        end
+      @cashback_result = the_cashback
+      @card_result = the_card
+      @category_result = the_category
+
+      end
+    end
+
     render({ :template => "wallet/search_results.html.erb" })
   end  
 end
