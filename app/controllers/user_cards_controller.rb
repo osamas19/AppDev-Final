@@ -27,7 +27,7 @@ class UserCardsController < ApplicationController
 
     if the_user_card.valid?
       the_user_card.save
-      redirect_to("/user_cards", { :notice => "User card created successfully." })
+      redirect_to("/user_cards", { :notice => "Credit card added successfully." })
     else
       redirect_to("/user_cards", { :alert => the_user_card.errors.full_messages.to_sentence })
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_04_200424) do
+ActiveRecord::Schema.define(version: 2023_03_04_223732) do
 
   create_table "cards", force: :cascade do |t|
     t.text "card_name"
@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 2023_03_04_200424) do
   end
 
   create_table "user_cards", force: :cascade do |t|
-    t.float "card_4_digits"
+    t.integer "card_4_digits"
     t.date "validity"
-    t.string "name_as_shown"
+    t.text "name_as_shown"
     t.integer "user_id"
     t.integer "card_id"
     t.datetime "created_at", precision: 6, null: false

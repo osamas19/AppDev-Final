@@ -3,8 +3,8 @@
 # Table name: user_cards
 #
 #  id            :integer          not null, primary key
-#  card_4_digits :float
-#  name_as_shown :string
+#  card_4_digits :integer
+#  name_as_shown :text
 #  validity      :date
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
