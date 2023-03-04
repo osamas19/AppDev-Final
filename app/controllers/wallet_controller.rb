@@ -60,47 +60,52 @@ class WalletController < ApplicationController
     visa_merchant_name = search_response_value.fetch("visaMerchantName")
     @result = all_mcc
 
-    @result.each do |a_category|
-      Card.each do |a_card|
-        number_of_cartegories = Card.no_of_cats
+    result_array = Array.new
+
+    result.each do |a_category|
+      Card.all.each do |a_card|
+        number_of_cartegories = a_card.no_of_cats
         if number_of_cartegories == 999
           the_cashback = a_card.cashback
           the_card = a_card.card_name
-        elsif a_category = Card.cat1
+        elsif a_category = a_card.cat1
           the_cashback = a_card.cat1_cashback
           the_card = a_card.card_name
-          the_category = a_card.ca1
-        elsif a_category = Card.cat2
+          the_category = a_card.cat1
+        elsif a_category = a_card.cat2
           the_cashback = a_card.cat2_cashback
           the_card = a_card.card_name
-          the_category = a_card.ca2
-        elsif a_category = Card.cat3
+          the_category = a_card.cat2
+        elsif a_category = a_card.cat3
           the_cashback = a_card.cat3_cashback
           the_card = a_card.card_name
-          the_category = a_card.ca3
-        elsif a_category = Card.cat4
+          the_category = a_card.cat3
+        elsif a_category = a_card.cat4
           the_cashback = a_card.cat4_cashback
           the_card = a_card.card_name
-          the_category = a_card.ca4
-        elsif a_category = Card.cat5
+          the_category = a_card.cat4
+        elsif a_category = a_card.cat5
           the_cashback = a_card.cat5_cashback
           the_card = a_card.card_name
-          the_category = a_card.ca5
-        elsif a_category = Card.cat6
+          the_category = a_card.cat5
+        elsif a_category = a_card.cat6
           the_cashback = a_card.cat6_cashback
           the_card = a_card.card_name
-          the_category = a_card.ca6
-        
+          the_category = a_card.cat6
         else 
           the_cashback = a_card.cashback
           the_card = a_card.card_name        
         end
-      @cashback_result = the_cashback
-      @card_result = the_card
-      @category_result = the_category
-
+        card_result = Hash.new
+        card_result.store(:cashbak, the_cashback)
+        card_result.store(:card_name, the_card)
+        card_result.store(:category, the_category)
+        result_array.push(card_result)
       end
     end
+    @maximum_cashback = result_array.max_by { |hash| hash[:cashbak] }[:cashbak]
+    @selected_card = result_array.max_by { |hash| hash[:cashbak] }[:card_name]
+    @selected_cat = result_array.max_by { |hash| hash[:cashbak] }[:category]
 
     render({ :template => "wallet/search_results.html.erb" })
   end  
