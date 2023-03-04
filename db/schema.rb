@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_04_015740) do
+ActiveRecord::Schema.define(version: 2023_03_04_161858) do
 
   create_table "cards", force: :cascade do |t|
-    t.string "card_name"
+    t.text "card_name"
     t.string "providor"
     t.string "network"
     t.float "cashback"
-    t.string "image"
+    t.text "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "cat1"

@@ -4,7 +4,7 @@
 #
 #  id               :integer          not null, primary key
 #  annual_fee       :integer
-#  card_name        :string
+#  card_name        :text
 #  cash_limit       :integer
 #  cashback         :float
 #  cat1             :integer
@@ -37,7 +37,7 @@
 #  cat9             :integer
 #  cat9_cash_limit  :integer
 #  cat9_cashback    :integer
-#  image            :string
+#  image            :text
 #  network          :string
 #  no_of_cats       :integer
 #  providor         :string
