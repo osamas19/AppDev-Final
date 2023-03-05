@@ -60,10 +60,12 @@ class WalletController < ApplicationController
     visa_merchant_name = search_response_value.fetch("visaMerchantName")
     @result = all_mcc
 
+    card_id_array = Array.new
+    
     result_array = Array.new
 
     result.each do |a_category|
-      Card.all.each do |a_card|
+      Card.where({ :id => card_id_array }).each do |a_card|
         number_of_cartegories = a_card.no_of_cats
         if number_of_cartegories == 999
           the_cashback = a_card.cashback

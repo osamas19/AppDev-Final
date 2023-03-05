@@ -1,10 +1,20 @@
 result = Array.new
 result.push("3355")
 result.push("5411")
+
+card_id_array = Array.new
+card_id_array.push("1")
+card_id_array.push("2")
+card_id_array.push("5")
+card_id_array.push("7")
+card_id_array.push("10")
+
 result_array = Array.new
 
+
+
 result.each do |a_category|
-  Card.all.each do |a_card|
+  Card.where({ :id => card_id_array }).each do |a_card|
     number_of_cartegories = a_card.no_of_cats
     if number_of_cartegories == 999
       the_cashback = a_card.cashback
