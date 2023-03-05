@@ -14,8 +14,11 @@ class WalletController < ApplicationController
     require 'json'
 
     date_time = Time.now.strftime("%Y-%m-%dT%H:%M:%S")
+    
+    #Visa API to get MCC
     the_merchant_name = params.fetch("merchant_name")
 
+    #Payload for API
     data = {
       "searchOptions": {
         "matchScore": "true",
@@ -38,6 +41,7 @@ class WalletController < ApplicationController
 
     data_json = data.to_json
 
+    #Calling Visa API
     response = RestClient::Request.execute(
       method: :post,
       url: "https://sandbox.api.visa.com/merchantsearch/v2/search",
@@ -50,6 +54,7 @@ class WalletController < ApplicationController
 
     )
 
+    #Parsing API response to get MCC
     parsed_result = JSON.parse(response)
     search_merchant = parsed_result.fetch("merchantSearchServiceResponse")
     search_response = search_merchant.fetch("response").at(0)
@@ -60,10 +65,16 @@ class WalletController < ApplicationController
     visa_merchant_name = search_response_value.fetch("visaMerchantName")
     @result = all_mcc
 
+    #Getting user associated cards from User_cards table
+    user_id = session.fetch(:user_id)
     card_id_array = Array.new
-    
-    result_array = Array.new
 
+    UserCard.where({ :id => user_id }).each do |a_card|
+      card_id_array.push(a_card)
+    end
+    
+    #Finding the card with the highet cashback
+    result_array = Array.new
     result.each do |a_category|
       Card.where({ :id => card_id_array }).each do |a_card|
         number_of_cartegories = a_card.no_of_cats
