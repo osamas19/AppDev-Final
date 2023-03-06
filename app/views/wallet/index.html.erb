@@ -36,8 +36,17 @@
 <table border="1">
   <% @list_of_cards.each do |a_card| %>
     <tr>
-      <td><%= a_card.card.card_name%></td>
-      <td><img src="<%= a_card.card.image %>"></td>
+      <td>
+        <%= a_card.card.card_name%>
+      </td>
+
+      <td>
+        <img src="<%= a_card.card.image %>">
+      </td>
+
+      <td>
+        <a href ="/delete_user_card/<%= a_card.id %>">Delete Card!</a>
+      </td>
     <tr>
   <% end %>
 </table>

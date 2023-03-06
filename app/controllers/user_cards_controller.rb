@@ -19,15 +19,17 @@ class UserCardsController < ApplicationController
 
   def create
     the_user_card = UserCard.new
-    the_user_card.card_4_digits = params.fetch("query_card_4_digits")
+    #store last 4 digits
+    the_user_card_number = params.fetch("query_card_4_digits")
+    the_user_card.card_4_digits = the_user_card_number.split(//).last(4).join
     the_user_card.validity = params.fetch("query_validity")
     the_user_card.name_as_shown = params.fetch("query_name_as_shown")
-    the_user_card.user_id = params.fetch("query_user_id")
+    the_user_card.user_id = session.fetch(:user_id)
     the_user_card.card_id = params.fetch("query_card_id")
 
     if the_user_card.valid?
       the_user_card.save
-      redirect_to("/user_cards", { :notice => "Credit card added successfully." })
+      redirect_to("/", { :notice => "Credit card added successfully." })
     else
       redirect_to("/user_cards", { :alert => the_user_card.errors.full_messages.to_sentence })
     end
@@ -57,6 +59,6 @@ class UserCardsController < ApplicationController
 
     the_user_card.destroy
 
-    redirect_to("/user_cards", { :notice => "User card deleted successfully."} )
+    redirect_to("/", { :notice => "User card deleted successfully."} )
   end
 end

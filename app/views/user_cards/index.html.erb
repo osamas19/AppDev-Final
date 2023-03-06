@@ -30,19 +30,13 @@
       </div>
 
       <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
-
-      <div>
-        <label for="card_id_box">
-          Card
-        </label>
-
-        <input type="text" id="card_id_box" name="query_card_id">
+        <Select id="card_id_box" name="query_card_id">
+          <% Card.all.each do |a_card| %>
+            <option value="<%= a_card.id %>">
+              <%= a_card.card_name %>
+            </option>
+          <% end %>
+        </select>
       </div>
 
       <button>
