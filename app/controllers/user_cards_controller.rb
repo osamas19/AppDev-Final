@@ -27,11 +27,17 @@ class UserCardsController < ApplicationController
     the_user_card.user_id = session.fetch(:user_id)
     the_user_card.card_id = params.fetch("query_card_id")
 
-    if the_user_card.valid?
-      the_user_card.save
-      redirect_to("/", { :notice => "Credit card added successfully." })
+    #Validate credit card doesn't exit already 
+    if UserCard.where(:user_id => the_user_card.user_id, :card_id => the_user_card.card_id).present?
+      redirect_to("/user_cards", { :notice => "Credit card already exist in your wallet." })
     else
-      redirect_to("/user_cards", { :alert => the_user_card.errors.full_messages.to_sentence })
+      #Calidate credit card
+      if the_user_card.valid?
+        the_user_card.save
+        redirect_to("/", { :notice => "Credit card added successfully." })
+      else
+        redirect_to("/user_cards", { :alert => the_user_card.errors.full_messages.to_sentence })
+      end
     end
   end
 
