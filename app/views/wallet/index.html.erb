@@ -22,9 +22,19 @@
   </div>
 </div>
 
-<p>Wallet</p>
+<div>
+    <h3>
+      Add New card
+    </h3>
+
+      <a href="/user_cards">
+        Add New Card
+      </a>
+</div>
+
+<h3>Wallet</h3>
 <table border="1">
-  <% UserCard.all.where({ :id => @user_name.id }).each do |a_card|%>
+  <% @list_of_cards.each do |a_card| %>
     <tr>
       <td><%= a_card.card.card_name%></td>
       <td><img src="<%= a_card.card.image %>"></td>

@@ -2,10 +2,13 @@ class WalletController < ApplicationController
 
 
   def index
+    user_id = session.fetch(:user_id)
+    @user_name = User.where(:id => user_id).first
+    
+    matching_cards = UserCard.all
+    @list_of_cards = matching_cards.where({ :user_id => user_id })
 
-    user = session.fetch(:user_id)
-    @user_name = User.where(:id => user).first
-    if user.present?
+    if user_id.present?
       render({ :template => "wallet/index.html.erb" })
     else
       redirect_to("/user_sign_in")
