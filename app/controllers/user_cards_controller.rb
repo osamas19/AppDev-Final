@@ -31,7 +31,7 @@ class UserCardsController < ApplicationController
     if UserCard.where(:user_id => the_user_card.user_id, :card_id => the_user_card.card_id).present?
       redirect_to("/user_cards", { :notice => "Credit card already exist in your wallet." })
     else
-      #Calidate credit card
+      #Validate credit card
       if the_user_card.valid?
         the_user_card.save
         redirect_to("/", { :notice => "Credit card added successfully." })
