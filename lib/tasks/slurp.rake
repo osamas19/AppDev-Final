@@ -7,7 +7,7 @@ namespace :slurp do
     csv.each do |row|
       tx = User.new
       tx.email = row["email"]
-      tx.password_digest = row["password"]
+      tx.password = row["password"]
       tx.phone = row["phone"]
       tx.save(:validate => false)
       puts "#{tx.email}, #{tx.phone} saved"
