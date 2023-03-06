@@ -3,9 +3,13 @@ class WalletController < ApplicationController
 
   def index
 
-
-
-    render({ :template => "wallet/index.html.erb" })
+    user = session.fetch(:user_id)
+    @user_name = User.where(:id => user).first
+    if user.present?
+      render({ :template => "wallet/index.html.erb" })
+    else
+      redirect_to("/user_sign_in")
+    end
   end  
 
   def search

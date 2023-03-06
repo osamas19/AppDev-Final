@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   has_many(:transactions, { :class_name => "Transaction", :foreign_key => "user_id", :dependent => :destroy })
 
-  has_many(:user_cards, { :class_name => "UserCard", :foreign_key => "name_as_shown", :dependent => :destroy })
+  has_many(:user_cards, { :class_name => "UserCard", :foreign_key => "user_id", :dependent => :destroy })
 
   has_many(:cards, { :through => :user_cards, :source => :user })
   

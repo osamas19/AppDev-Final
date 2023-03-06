@@ -1,4 +1,4 @@
-<h1>Welcome <%= session.fetch(:user_id)%></h1>
+<h1>Welcome <%= @user_name.email %></h1>
 
 <div>
   <div>
@@ -22,7 +22,12 @@
   </div>
 </div>
 
-<p>List Cards</p>
-<table>
-
+<p>Wallet</p>
+<table border="1">
+  <% UserCard.all.where({ :id => @user_name.id }).each do |a_card|%>
+    <tr>
+      <td><%= a_card.card.card_name%></td>
+      <td><img src="<%= a_card.card.image %>"></td>
+    <tr>
+  <% end %>
 </table>

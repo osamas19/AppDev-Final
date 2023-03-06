@@ -13,9 +13,9 @@
 #
 class UserCard < ApplicationRecord
 
-  belongs_to(:one_user, { :required => true, :class_name => "User", :foreign_key => "name_as_shown" })
+  belongs_to(:one_user, { :required => true, :class_name => "User", :foreign_key => "user_id" })
 
-  belongs_to(:user, { :required => true, :class_name => "Card", :foreign_key => "user_id" })
+  belongs_to(:card, { :required => true, :class_name => "Card", :foreign_key => "card_id" })
 
   has_many(:transactions, { :class_name => "Transaction", :foreign_key => "user_card_id", :dependent => :destroy })
 
