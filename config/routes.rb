@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   
   # UPDATE
   
-  post("/modify_user_card/:path_id", { :controller => "user_cards", :action => "update" })
+  #post("/modify_user_card/:path_id", { :controller => "user_cards", :action => "update" })
   
   # DELETE
   get("/delete_user_card/:path_id", { :controller => "user_cards", :action => "destroy" })
@@ -48,33 +48,33 @@ Rails.application.routes.draw do
   # Routes for the Card resource:
 
   # CREATE
-  post("/insert_card", { :controller => "cards", :action => "create" })
+  #post("/insert_card", { :controller => "cards", :action => "create" })
           
   # READ
-  get("/cards", { :controller => "cards", :action => "index" })
+  #get("/cards", { :controller => "cards", :action => "index" })
   
-  get("/cards/:path_id", { :controller => "cards", :action => "show" })
+  #get("/cards/:path_id", { :controller => "cards", :action => "show" })
   
   # UPDATE
   
-  post("/modify_card/:path_id", { :controller => "cards", :action => "update" })
+  #post("/modify_card/:path_id", { :controller => "cards", :action => "update" })
   
   # DELETE
-  get("/delete_card/:path_id", { :controller => "cards", :action => "destroy" })
+  #get("/delete_card/:path_id", { :controller => "cards", :action => "destroy" })
 
   #------------------------------
 
   # Routes for the User account:
 
   # SIGN UP FORM
-  get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
+  #get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
   # CREATE RECORD
-  post("/insert_user", { :controller => "user_authentication", :action => "create"  })
+  #post("/insert_user", { :controller => "user_authentication", :action => "create"  })
       
   # EDIT PROFILE FORM        
-  get("/edit_user_profile", { :controller => "user_authentication", :action => "edit_profile_form" })       
+  #get("/edit_user_profile", { :controller => "user_authentication", :action => "edit_profile_form" })       
   # UPDATE RECORD
-  post("/modify_user", { :controller => "user_authentication", :action => "update" })
+  #post("/modify_user", { :controller => "user_authentication", :action => "update" })
   
   # DELETE RECORD
   get("/cancel_user_account", { :controller => "user_authentication", :action => "destroy" })

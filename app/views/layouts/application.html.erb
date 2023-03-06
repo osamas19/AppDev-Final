@@ -16,18 +16,26 @@
   </head>
 
   <body>
-    <div>
+    <nav>
       <ul>
         <% if session.fetch(:user_id).present? %>
           <li><a href="/">Home</a></li>
           <li><a href="/transactions">Transactions</a></li>
-          <li><a href="/card">All Cards</a></li>
           <li><a href="/user_sign_out">Sign Out</a></li>
         <% else %>
           
         <% end %>
       </ul>
-    </div>
+    </nav>
+
+    <% if notice.present? %>
+      <div><%= notice %></div>
+    <% end %>
+
+    <% if alert.present? %>
+      <div><%= alert %></div>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
