@@ -9,7 +9,7 @@ namespace :slurp do
       tx.email = row["email"]
       tx.password_digest = row["password"]
       tx.phone = row["phone"]
-      tx.save
+      tx.save(:validate => false)
       puts "#{tx.email}, #{tx.phone} saved"
 
     end
