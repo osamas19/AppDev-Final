@@ -12,7 +12,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.css">
 
+    <link rel="stylesheet" href="/css/my_styles.css">
   </head>
 
   <body>
@@ -37,6 +39,7 @@
       <div><%= alert %></div>
     <% end %>
     
+    <hr>
     <%= yield %>
   </body>
 </html>

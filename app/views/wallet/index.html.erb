@@ -15,23 +15,24 @@
         <input type="text" id="merchant" name="merchant_name">
       </div>
 
-      <button>
+      <button class="btn btn-outline-success">
         Lookup!
       </button>
     </form>
   </div>
 </div>
-
+<p></p>
 <div>
     <h3>
       Add New card
     </h3>
 
-      <a href="/user_cards">
+      <a class="btn btn-success" href="/user_cards">
         Add New Card
       </a>
 </div>
 
+<hr>
 <h3>Wallet</h3>
 <table border="1">
   <% @list_of_cards.each do |a_card| %>
@@ -45,7 +46,7 @@
       </td>
 
       <td>
-        <a href ="/delete_user_card/<%= a_card.id %>">Delete Card!</a>
+        <a class="btn btn-outline-danger" href ="/delete_user_card/<%= a_card.id %>">Delete Card!</a>
       </td>
     <tr>
   <% end %>
