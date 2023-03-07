@@ -65,6 +65,6 @@ class UserCardsController < ApplicationController
 
     the_user_card.destroy
 
-    redirect_to("/", { :notice => "User card deleted successfully."} )
+    redirect_to("/", { :notice => "Credit card removed successfully."} )
   end
 end
