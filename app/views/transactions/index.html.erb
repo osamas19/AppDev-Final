@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all transactions
+      All transactions
     </h1>
   </div>
 </div>
@@ -40,16 +40,8 @@
       </div>
 
       <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
-
-      <div>
         <label for="user_card_id_box">
-          User card
+          Card
         </label>
 
         <input type="text" id="user_card_id_box" name="query_user_card_id">
@@ -64,7 +56,7 @@
       </div>
 
       <button>
-        Create transaction
+        Record Payment
       </button>
     </form>
   </div>
@@ -75,9 +67,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Merchant name
@@ -92,11 +81,7 @@
         </th>
 
         <th>
-          User
-        </th>
-
-        <th>
-          User card
+          Card
         </th>
 
         <th>
@@ -104,22 +89,13 @@
         </th>
 
         <th>
-          Created at
+          Date
         </th>
 
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
       </tr>
 
       <% @list_of_transactions.each do |a_transaction| %>
       <tr>
-        <td>
-          <%= a_transaction.id %>
-        </td>
 
         <td>
           <%= a_transaction.merchant_name %>
@@ -134,10 +110,6 @@
         </td>
 
         <td>
-          <%= a_transaction.user_id %>
-        </td>
-
-        <td>
           <%= a_transaction.user_card_id %>
         </td>
 
@@ -148,15 +120,7 @@
         <td>
           <%= time_ago_in_words(a_transaction.created_at) %> ago
         </td>
-        <td>
-          <%= time_ago_in_words(a_transaction.updated_at) %> ago
-        </td>
 
-        <td>
-          <a href="/transactions/<%= a_transaction.id %>">
-            Show details
-          </a>
-        </td>
       </tr>
       <% end %>
     </table>

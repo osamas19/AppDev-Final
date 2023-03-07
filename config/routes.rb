@@ -15,14 +15,14 @@ Rails.application.routes.draw do
   # READ
   get("/transactions", { :controller => "transactions", :action => "index" })
   
-  get("/transactions/:path_id", { :controller => "transactions", :action => "show" })
+  #get("/transactions/:path_id", { :controller => "transactions", :action => "show" })
   
   # UPDATE
   
-  post("/modify_transaction/:path_id", { :controller => "transactions", :action => "update" })
+  #post("/modify_transaction/:path_id", { :controller => "transactions", :action => "update" })
   
   # DELETE
-  get("/delete_transaction/:path_id", { :controller => "transactions", :action => "destroy" })
+  #get("/delete_transaction/:path_id", { :controller => "transactions", :action => "destroy" })
 
   #------------------------------
 
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   # READ
   get("/user_cards", { :controller => "user_cards", :action => "index" })
   
-  get("/user_cards/:path_id", { :controller => "user_cards", :action => "show" })
+  #get("/user_cards/:path_id", { :controller => "user_cards", :action => "show" })
   
   # UPDATE
   
@@ -67,14 +67,14 @@ Rails.application.routes.draw do
   # Routes for the User account:
 
   # SIGN UP FORM
-  #get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
+  get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
   # CREATE RECORD
-  #post("/insert_user", { :controller => "user_authentication", :action => "create"  })
+  post("/insert_user", { :controller => "user_authentication", :action => "create"  })
       
   # EDIT PROFILE FORM        
-  #get("/edit_user_profile", { :controller => "user_authentication", :action => "edit_profile_form" })       
+  get("/edit_user_profile", { :controller => "user_authentication", :action => "edit_profile_form" })       
   # UPDATE RECORD
-  #post("/modify_user", { :controller => "user_authentication", :action => "update" })
+  post("/modify_user", { :controller => "user_authentication", :action => "update" })
   
   # DELETE RECORD
   get("/cancel_user_account", { :controller => "user_authentication", :action => "destroy" })
