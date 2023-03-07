@@ -1,7 +1,7 @@
-<h1>Selected Card</h1>
+<h3>Selected Card</h3>
 
 <div>
-  <h2><%= @card.card_name %></h2>
+  <h5><%= @card.card_name %></h5>
 </div>
 
 <div>
@@ -9,17 +9,14 @@
 </div>
 
 <div>
-  <h3>Cash Back <%= @maximum_cashback %>%</h3>
+  <h5>Cash Back <%= @maximum_cashback %>%</h5>
 </div>
 
-<div>
-  <%= @selected_cat %>
-</div>
 
 <div>
-    <h3>
+    <h5>
       Make a Payment
-    </h3>
+    </h5>
 
       <a class="btn btn-outline-success" href="/transactions">
         Pay
