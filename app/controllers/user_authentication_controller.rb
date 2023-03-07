@@ -42,8 +42,8 @@ class UserAuthenticationController < ApplicationController
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.phone = params.fetch("query_phone")
-    @user.savings = params.fetch("query_savings")
-    @user.spending = params.fetch("query_spending")
+    #@user.savings = params.fetch("query_savings")
+    #@user.spending = params.fetch("query_spending")
 
     save_status = @user.save
 
@@ -66,8 +66,8 @@ class UserAuthenticationController < ApplicationController
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.phone = params.fetch("query_phone")
-    @user.savings = params.fetch("query_savings")
-    @user.spending = params.fetch("query_spending")
+    #@user.savings = params.fetch("query_savings")
+    #@user.spending = params.fetch("query_spending")
     
     if @user.valid?
       @user.save

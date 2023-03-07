@@ -13,14 +13,6 @@
         <label for="phone_box">Phone</label>
         <input id="phone_box" name="query_phone" value="<%= @current_user.phone %>">
       </div>
-      <div>
-        <label for="savings_box">Savings</label>
-        <input id="savings_box" name="query_savings" value="<%= @current_user.savings %>">
-      </div>
-      <div>
-        <label for="spending_box">Spending</label>
-        <input id="spending_box" name="query_spending" value="<%= @current_user.spending %>">
-      </div>
 
       <div>
         <label for="password_box">Password</label>
@@ -36,5 +28,6 @@
         Update account
       </button>
     </form>
+    <p><a href="/cancel_user_account">Delete Account Permanently</a></p>
   </div>
 </div>

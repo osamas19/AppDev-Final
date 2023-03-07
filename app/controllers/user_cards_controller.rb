@@ -7,15 +7,15 @@ class UserCardsController < ApplicationController
     render({ :template => "user_cards/index.html.erb" })
   end
 
-  def show
-    the_id = params.fetch("path_id")
+  #def show
+  #  the_id = params.fetch("path_id")
 
-    matching_user_cards = UserCard.where({ :id => the_id })
+  #  matching_user_cards = UserCard.where({ :id => the_id })
 
-    @the_user_card = matching_user_cards.at(0)
+  #  @the_user_card = matching_user_cards.at(0)
 
-    render({ :template => "user_cards/show.html.erb" })
-  end
+  #  render({ :template => "user_cards/show.html.erb" })
+  #end
 
   def create
     the_user_card = UserCard.new
