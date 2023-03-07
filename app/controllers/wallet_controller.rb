@@ -70,19 +70,20 @@ class WalletController < ApplicationController
     primary_mcc = search_response_value.fetch("primaryMerchantCategoryCode")
     all_mcc = search_response_value.fetch("merchantCategoryCode")
     visa_merchant_name = search_response_value.fetch("visaMerchantName")
-    @result = all_mcc
+    category_array = all_mcc
 
     #Getting user associated cards from User_cards table
-    user_id = session.fetch(:user_id)
+    the_user_id = session.fetch(:user_id)
+    
     card_id_array = Array.new
 
-    UserCard.where({ :id => user_id }).each do |a_card|
-      card_id_array.push(a_card)
+    UserCard.where({ :user_id => the_user_id }).each do |a_card|
+      card_id_array.push(a_card.card_id)
     end
     
     #Finding the card with the highet cashback
     result_array = Array.new
-    result.each do |a_category|
+    category_array.each do |a_category|
       Card.where({ :id => card_id_array }).each do |a_card|
         number_of_cartegories = a_card.no_of_cats
         if number_of_cartegories == 999
@@ -124,8 +125,9 @@ class WalletController < ApplicationController
       end
     end
     @maximum_cashback = result_array.max_by { |hash| hash[:cashbak] }[:cashbak]
-    @selected_card = result_array.max_by { |hash| hash[:cashbak] }[:card_name]
+    selected_card = result_array.max_by { |hash| hash[:cashbak] }[:card_name]
     @selected_cat = result_array.max_by { |hash| hash[:cashbak] }[:category]
+    @card = Card.where(:card_name => selected_card).at(0)
 
     render({ :template => "wallet/search_results.html.erb" })
   end  

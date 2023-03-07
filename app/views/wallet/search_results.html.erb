@@ -1,6 +1,17 @@
-<h1>Result</h1>
-<%= @result %>
+<h1>Selected Card</h1>
 
-<%= @cashback_result %>
-<%= @card_result %>
-<%= @category_result %>
+<div>
+  <h2><%= @card.card_name %></h2>
+</div>
+
+<div>
+  <img src="<%= @card.image %>">
+</div>
+
+<div>
+  <h3>Cash Back <%= @maximum_cashback %>%</h3>
+</div>
+
+<div>
+  <%= @selected_cat %>
+</div>
