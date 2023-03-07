@@ -1,4 +1,6 @@
-<h1>Welcome <%= @user_name.email %></h1>
+<h3>Welcome <%= @user_name.email %></h3>
+
+<hr>
 
 <div>
   <div>
@@ -34,20 +36,14 @@
 
 <hr>
 <h3>Wallet</h3>
-<table border="1">
+
   <% @list_of_cards.each do |a_card| %>
-    <tr>
-      <td>
-        <%= a_card.card.card_name%>
-      </td>
-
-      <td>
-        <img src="<%= a_card.card.image %>">
-      </td>
-
-      <td>
-        <a class="btn btn-outline-danger" href ="/delete_user_card/<%= a_card.id %>">Delete Card!</a>
-      </td>
-    <tr>
+    <div class="card text-center" style="width: 18rem;">
+      <img src="<%= a_card.card.image %>" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><%= a_card.card.card_name%></h5>
+        <p class="card-text"></p>
+        <a href="/delete_user_card/<%= a_card.id %>" class="btn btn-outline-danger">Delete Card!</a>
+      </div>
+    </div>
   <% end %>
-</table>
