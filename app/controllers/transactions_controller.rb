@@ -36,25 +36,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  #def update
-  #  the_id = params.fetch("path_id")
-  #  the_transaction = Transaction.where({ :id => the_id }).at(0)
-
-  #  the_transaction.merchant_name = params.fetch("query_merchant_name")
-  #  the_transaction.amount = params.fetch("query_amount")
-  #  the_transaction.cashback = params.fetch("query_cashback")
-  #  the_transaction.user_id = params.fetch("query_user_id")
-  #  the_transaction.user_card_id = params.fetch("query_user_card_id")
-  #  the_transaction.location = params.fetch("query_location")
-
-  #  if the_transaction.valid?
-  #    the_transaction.save
-  #    redirect_to("/transactions/#{the_transaction.id}", { :notice => "Transaction updated successfully."} )
-  #  else
-  #    redirect_to("/transactions/#{the_transaction.id}", { :alert => the_transaction.errors.full_messages.to_sentence })
-  #  end
-  #end
-
   def destroy
     the_id = params.fetch("path_id")
     the_transaction = Transaction.where({ :id => the_id }).at(0)

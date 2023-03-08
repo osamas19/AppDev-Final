@@ -15,12 +15,6 @@ Rails.application.routes.draw do
   # READ
   get("/transactions", { :controller => "transactions", :action => "index" })
   
-  #get("/transactions/:path_id", { :controller => "transactions", :action => "show" })
-  
-  # UPDATE
-  
-  #post("/modify_transaction/:path_id", { :controller => "transactions", :action => "update" })
-  
   # DELETE
   #get("/delete_transaction/:path_id", { :controller => "transactions", :action => "destroy" })
 
@@ -34,11 +28,7 @@ Rails.application.routes.draw do
   # READ
   get("/user_cards", { :controller => "user_cards", :action => "index" })
   
-  #get("/user_cards/:path_id", { :controller => "user_cards", :action => "show" })
-  
   # UPDATE
-  
-  #post("/modify_user_card/:path_id", { :controller => "user_cards", :action => "update" })
   
   # DELETE
   get("/delete_user_card/:path_id", { :controller => "user_cards", :action => "destroy" })
