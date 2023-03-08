@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+
   def index
     the_user_id = session.fetch(:user_id)
     matching_transactions = Transaction.where({ :user_id => the_user_id })
