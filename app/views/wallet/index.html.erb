@@ -1,12 +1,12 @@
-<h4>Welcome <%= @user_name.email %></h4>
+<p class="fs-5 fw-bold">Welcome <%= @user_name.email %></p>
 
 <hr>
 
 <div>
   <div>
-    <h3>
+    <p class="fs-5">
       Merchant Lookup
-    </h3>
+    </p>
 
     <form action="/merchant_search" method="post">
       <div>
@@ -25,9 +25,6 @@
 </div>
 <p></p>
 <div>
-    <h3>
-      Add New card
-    </h3>
 
       <a class="btn btn-success" href="/user_cards">
         Add New Card
@@ -35,13 +32,13 @@
 </div>
 
 <hr>
-<h3>Wallet</h3>
+<p class="fs-5">Wallet</p>
 
   <% @list_of_cards.each do |a_card| %>
     <div class="card text-center" style="width: 18rem;">
       <img src="<%= a_card.card.image %>" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title"><%= a_card.card.card_name%></h5>
+        <h5 class="card-title fs-6"><%= a_card.card.card_name%></h5>
         <p class="card-text"></p>
         <a href="/delete_user_card/<%= a_card.id %>" class="btn btn-outline-danger">Delete Card!</a>
       </div>
