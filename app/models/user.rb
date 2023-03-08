@@ -4,8 +4,11 @@
 #
 #  id              :integer          not null, primary key
 #  email           :text
+#  first_name      :string
+#  last_name       :string
 #  password_digest :string
 #  phone           :text
+#  picture         :text
 #  savings         :integer
 #  spending        :integer
 #  created_at      :datetime         not null
