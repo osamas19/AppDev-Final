@@ -1,31 +1,40 @@
 <h1>Sign up</h1>
 
-<form action="/insert_user" method="post">
+<form action="/insert_user" method="post" class="row gy-2 gx-3 align-items-center">
 
-  <div>
-    <label for="email_box">Email</label>
-    <input id="email_box" name="query_email" placeholder="Choose a email..." type="text">
+  <div class="row mb-3">
+    <label for="email_box" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="email_box" name="query_email" placeholder="Choose a email..." type="text">
+    </div>
   </div>
                  
-  <div>
-    <label for="phone_box">Phone</label>
-      
-    <input type="text" id="phone_box" name="query_phone">
+  <div class="row mb-3">
+    <label for="phone_box" class="col-sm-2 col-form-label">Phone</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" id="phone_box" name="query_phone">
+    </div>
   </div>
     
-  <div>
-    <label for="password_box">Password</label>
-    <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
+  <div class="row mb-3">
+    <label for="password_box" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="password_box" name="query_password" placeholder="Choose a password..." type="password">
+    </div>
   </div>
 
-  <div>
-    <label for="password_confirmation_box">Password Confirmation</label>
-    <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
+  <div class="row mb-3">
+    <label for="password_confirmation_box" class="col-sm-2 col-form-label">Password Confirmation</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
+    </div>
   </div>
 
-  <button class="btn btn-success">
-    Sign up
-  </button>
+  <div class="col-auto">
+    <button class="btn btn-success">
+      Sign up
+    </button>
+  </div>
 </form>
 
 <hr>
