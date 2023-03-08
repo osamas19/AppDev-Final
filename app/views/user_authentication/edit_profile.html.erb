@@ -15,6 +15,16 @@
         <label for="last_name_box" class="form-label">Last Name</label>
         <input class="form-control" id="last_name_box" name="query_last_name" value="<%= @current_user.last_name %>">
       </div>
+      
+      <div class="col-6">
+        <label for="password_box" class="form-label">Password</label>
+        <input class="form-control" id="password_box" name="query_password" placeholder="Choose a password..." type="password">
+      </div>
+    
+      <div class="col-6">
+        <label for="password_confirmation_box" class="form-label">Password Confirmation</label>
+        <input class="form-control" id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
+      </div>
 
       <div class="col-12">
         <label for="email_box" class="form-label">Email</label>
@@ -26,18 +36,8 @@
         <input class="form-control" id="phone_box" name="query_phone" value="<%= @current_user.phone %>">
       </div>
 
-      <div class="col-6">
-        <label for="password_box" class="form-label">Password</label>
-        <input class="form-control" id="password_box" name="query_password" placeholder="Choose a password..." type="password">
-      </div>
-    
-      <div class="col-6">
-        <label for="password_confirmation_box" class="form-label">Password Confirmation</label>
-        <input class="form-control" id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
-      </div>
-
       <button class="btn btn-outline-success">
-        Update account
+        Update Profile
       </button>
     </form>
     <hr>

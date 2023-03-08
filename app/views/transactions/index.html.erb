@@ -72,8 +72,8 @@
 </div>
 <div>
   <div class="d-flex flex-row mb-3 justify-content-center">
-    <table border="1">
-      <tr>
+    <table class="table">
+      <tr class="table-success">
 
         <th>
           Merchant name
@@ -117,7 +117,7 @@
         </td>
 
         <td>
-          <%= a_transaction.user_card_id %>
+          <%= a_transaction.card.card.card_name %>
         </td>
 
         <td>

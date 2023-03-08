@@ -1,49 +1,55 @@
 <div>
   <div>
-    <h2>
+    <p class="fs-5">
       Add a new card
-    </h2>
+    </p>
 
-    <form action="/insert_user_card" method="post">
-      <div>
-        <label for="card_4_digits_box">
-          Card Number
-        </label>
+    <div class="d-flex flex-row mb-3 justify-content-center"> 
+      <form action="/insert_user_card" method="post" class="col-md-4">
+        <div class="row mb-3">
+          <label for="card_4_digits_box" class="col-sm-4 col-form-label">
+            Card Number
+          </label>
+          <div class="col-sm-8">
+            <input class="form-control" type="text" id="card_4_digits_box" name="query_card_4_digits">
+          </div>
+        </div>
 
-        <input type="text" id="card_4_digits_box" name="query_card_4_digits">
-      </div>
+        <div class="row mb-3">
+          <label for="validity_box" class="col-sm-4 col-form-label">
+            Validity
+          </label>
+          <div class="col-sm-8">
+            <input class="form-control" type="date" id="validity_box" name="query_validity">
+          </div>
+        </div>
 
-      <div>
-        <label for="validity_box">
-          Validity
-        </label>
+        <div class="row mb-3">
+          <label for="name_as_shown_box" class="col-sm-4 col-form-label">
+            Name as shown
+          </label>
+          <div class="col-sm-8">
+            <input class="form-control" type="text" id="name_as_shown_box" name="query_name_as_shown">
+          </div>
+        </div>
 
-        <input type="date" id="validity_box" name="query_validity">
-      </div>
+        <div class="row mb-3">
+          <Select id="card_id_box" name="query_card_id" class="col-sm-12 col-form-label">
+            <% Card.all.each do |a_card| %>
+              <option value="<%= a_card.id %>">
+                <%= a_card.card_name %>
+              </option>
+            <% end %>
+          </select>
+        </div>
 
-      <div>
-        <label for="name_as_shown_box">
-          Name as shown
-        </label>
-
-        <input type="text" id="name_as_shown_box" name="query_name_as_shown">
-      </div>
-
-      <div>
-        <Select id="card_id_box" name="query_card_id">
-          <% Card.all.each do |a_card| %>
-            <option value="<%= a_card.id %>">
-              <%= a_card.card_name %>
-            </option>
-          <% end %>
-        </select>
-      </div>
-
-      <p></p>
-      <button class="btn btn-outline-success">
-        Add card
-      </button>
-     
-    </form>
+        <p></p>
+        <div class="d-flex flex-row mb-3 justify-content-center"> 
+          <button class="btn btn-success">
+            Add card
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
