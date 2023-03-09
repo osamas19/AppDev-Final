@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   # Routes for the Transaction resource:
 
+  #Collect Params
+  post("/transaction_params", { :controller => "transactions", :action => "transaction_param" })
+
   # CREATE
   post("/insert_transaction", { :controller => "transactions", :action => "create" })
           

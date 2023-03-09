@@ -19,8 +19,17 @@
 
 <div>
   <div class="d-flex flex-row mb-3 justify-content-center"> 
-    <a class="btn btn-outline-success" href="/transactions">
-      Pay
-    </a>
+
+    <form action="/transaction_params" method="post">
+      <input type="hidden" name="card_name" value="<%= @card.card_name %>">
+      <input type="hidden" name="cash_back" value="<%= @maximum_cashback %>">
+      <input type="hidden" name="merchant" value="<%= @merchant %>">
+      
+      <button class="btn btn-outline-success">
+        Pay
+      </button>
+
+    </form>
+
   </div>
 </div>

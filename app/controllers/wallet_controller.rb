@@ -24,7 +24,8 @@ class WalletController < ApplicationController
     
     #Visa API to get MCC
     the_merchant_name = params.fetch("merchant_name")
-
+    @merchant = the_merchant_name
+    
     #Payload for API
     data = {
       "searchOptions": {

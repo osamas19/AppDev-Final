@@ -8,11 +8,8 @@
     <div class="d-flex flex-row mb-3 justify-content-center"> 
       <form action="/insert_transaction" method="post" class="col-md-4">
         <div class="row mb-3">
-          <label for="merchant_name_box" class="col-sm-2 col-form-label">
-            Merchant
-          </label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" id="merchant_name_box" name="query_merchant_name">
+            <input type="hidden" class="form-control" type="text" id="merchant_name_box" name="query_merchant_name" value="<%= @the_merchant_name_param %>">
           </div>
         </div>
 
@@ -26,20 +23,14 @@
         </div>
 
         <div class="row mb-3">
-          <label for="cashback_box" class="col-sm-2 col-form-label">
-            Cashback
-          </label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" id="cashback_box" name="query_cashback">
+            <input type="hidden" class="form-control" type="text" id="cashback_box" name="query_cashback" value="<%= @the_cash_back_param %>">
           </div>
         </div>
 
         <div class="row mb-3">
-          <label for="user_card_id_box" class="col-sm-2 col-form-label">
-            Card
-          </label>
           <div class="col-sm-10">
-            <input class="form-control" type="text" id="user_card_id_box" name="<query_user_card_id>">
+            <input type="hidden" class="form-control" type="text" id="user_card_id_box" name="query_user_card_id" value="<%= @the_card_id_param %>">
           </div>
         </div>
 
@@ -64,74 +55,4 @@
   </div>
 </div>
 
-<hr>
-<div>
-    <p class="fs-5 fw-bold">
-      All transactions
-    </p>
-</div>
-<div>
-  <div class="d-flex flex-row mb-3 justify-content-center">
-    <table class="table">
-      <tr class="table-success">
 
-        <th>
-          Merchant name
-        </th>
-
-        <th>
-          Amount
-        </th>
-
-        <th>
-          Cashback
-        </th>
-
-        <th>
-          Card
-        </th>
-
-        <th>
-          Location
-        </th>
-
-        <th>
-          Date
-        </th>
-
-      </tr>
-
-      <% @list_of_transactions.each do |a_transaction| %>
-      <tr>
-
-        <td>
-          <%= a_transaction.merchant_name %>
-        </td>
-
-        <td>
-          <%= a_transaction.amount %>
-        </td>
-
-        <td>
-          <%= a_transaction.cashback %>%
-        </td>
-
-        <td>
-          <%= a_transaction.card.card.card_name %>
-        </td>
-
-        <td>
-          <%= a_transaction.location %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_transaction.created_at) %> ago
-        </td>
-
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
-
-<hr>

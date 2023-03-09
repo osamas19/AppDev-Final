@@ -6,7 +6,8 @@ class TransactionsController < ApplicationController
 
     @list_of_transactions = matching_transactions.order({ :created_at => :desc })
 
-    render({ :template => "transactions/index.html.erb" })
+    render({ :template => "transactions/show.html.erb" })
+    #redirect_to("/transactions")
   end
 
   def show
@@ -21,7 +22,7 @@ class TransactionsController < ApplicationController
 
   def create
     the_transaction = Transaction.new
-    the_transaction.merchant_name = params.fetch("query_merchant_name")
+    the_transaction.merchant_name =  params.fetch("query_merchant_name")
     the_transaction.amount = params.fetch("query_amount")
     the_transaction.cashback = params.fetch("query_cashback")
     the_transaction.user_id = session.fetch(:user_id)
@@ -43,5 +44,16 @@ class TransactionsController < ApplicationController
     the_transaction.destroy
 
     redirect_to("/transactions", { :notice => "Transaction deleted successfully."} )
+  end
+
+  def transaction_param
+    @the_merchant_name_param = params.fetch("merchant")
+    @the_cash_back_param = params.fetch("cash_back")
+    @the_card_name_param = params.fetch("card_name")
+    @the_card_id_param = Card.where({ :card_name => @the_card_name_param }).at(0).id
+
+    render({ :template => "transactions/index.html.erb" })
+    #redirect_to("/transactions")
+
   end
 end
